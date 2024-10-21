@@ -43,7 +43,7 @@ class ListingController extends Controller
                 'street_nr' => 'required|min:1|max:1000',
                 'price' => 'required|integer|min:1|max:2000000',
             ]),
-            // 에러가 발생하면 자동으로 세션에 담아 전달됨
+            // validate 에러가 발생하면 자동으로 세션에 담아 전달됨
         ]);
 
         return redirect()->route('listing.index')

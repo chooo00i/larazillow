@@ -84,8 +84,9 @@
         price: 0,
     })
 
-    const create = () => router.post('/listing', form)
-    // const create = () => form.post(route('listing.store'))
+    // const create = () => router.post('/listing', form)
+    // todo 아래 방식 확인
+    const create = () => form.post(route('listing.store'))
 </script>
 
 <style scoped>
