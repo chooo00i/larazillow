@@ -4,7 +4,7 @@
     <header class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 w-full">
         <div class="container mx-auto">
             <nav class="p-4 flex items-center justify-between">
-                <div class="text-lg">
+                <div class="text-lg font-bold">
                     <Link :href="route('listing.index')">Listings</Link>
                 </div>
                 <div class="text-lg text-indigo-600 dark:text-indigo-300 font-bold text-center">
