@@ -23,16 +23,20 @@ class AuthController extends Controller
             'password' => 'required|string'
         ]), true)) {
             throw ValidationException::withMessages([
-                'email' => 'Authentication failed'
+                'password' => 'Authentication failed'
             ]);
         }
-        $request->session()->regenerate();
-        return redirect()->intended();
+        $request->session()->regenerate(); // 세션 재생성, 세션 하이재킹 방지
+        return redirect()->intended('/listing');
     }
 
     // 로그아웃
-    public function destroy()
+    public function destroy(Request $request)
     {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken(); // csrf 토큰 재생성
 
+        return redirect()->route('logout');
     }
 }
