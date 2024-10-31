@@ -1,21 +1,10 @@
 <template>
-    <div>Index</div>
-    <Link href="/hello">Show Page</Link>
     <div>
-        Message is {{ message }}
+        <Link :href="`logout`" method="delete" as="button" type="button">Logout</Link>
     </div>
 </template>
 
 <script setup>
-    import { Link } from '@inertiajs/vue3';
-    defineProps({
-        message: String,
-    });
+    import { ref } from 'vue'
+    import { Link } from '@inertiajs/vue3'
 </script>
-
-<!-- <script>
-    import MainLayout from '../../Layouts/MainLayout.vue'
-    export default {
-        layout: MainLayout
-    }
-</script> -->

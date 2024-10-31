@@ -3,13 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Larazillow</title>
+        <title>Laravel</title>
         @routes
         @vite('resources/js/app.js')
         @inertiaHead
     </head>
-    <body class="bd-white dark:bg-gray-900 text-gray-800 dark:text-gray-300">
+    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
         @inertia
     </body>
 </html>
