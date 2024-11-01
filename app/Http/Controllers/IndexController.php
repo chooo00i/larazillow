@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AuthController extends Controller
+class IndexController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return inertia(
+            'Index/Index', 
+            [
+                'message' => 'hello from laravel',
+            ]
+        );
     }
 
     /**
@@ -19,7 +24,7 @@ class AuthController extends Controller
      */
     public function create()
     {
-        //
+        return inertia('Index/Show');
     }
 
     /**
@@ -57,8 +62,8 @@ class AuthController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy()
+    public function destroy(string $id)
     {
-        return redirect()->intended('/');
+        //
     }
 }

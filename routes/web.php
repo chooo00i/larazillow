@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\IndexController;
 
-Route::get('/', function () {
-    return inertia('Index/Index');
-});
-
-Route::delete('logout', [AuthController::class, 'destroy'])->name('logout');
+Route::get('/', [IndexController::class, 'index']);
+Route::get('/hello', [IndexController::class, 'create']);

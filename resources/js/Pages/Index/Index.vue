@@ -1,10 +1,15 @@
 <template>
     <div>
-        <Link :href="`logout`" method="delete" as="button" type="button">Logout</Link>
+        <Link href="/hello">Show Page</Link>
     </div>
+    <div>The message is {{ message }}</div>
 </template>
 
 <script setup>
-    import { ref } from 'vue'
     import { Link } from '@inertiajs/vue3'
+    // import MainLayout from '../../Layouts/MainLayout.vue'
+
+    defineProps({
+        message: String
+    })
 </script>
