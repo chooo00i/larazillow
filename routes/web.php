@@ -7,5 +7,6 @@ use App\Http\Controllers\ListingController;
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/hello', [IndexController::class, 'create']);
 
-Route::resource('listing', ListingController::class)
-    ->only(['index', 'show']);
+Route::resource('listing', ListingController::class);
+    // ->only(['index', 'show', 'create', 'store']);
+    // ->except(['destroy']);
