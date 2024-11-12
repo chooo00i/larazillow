@@ -6,11 +6,15 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ListingController;
 
 Route::get('/', [IndexController::class, 'index']);
-Route::get('/hello', [IndexController::class, 'create']);
+Route::get('/hello', [IndexController::class, 'create'])
+    ->middleware('auth');
+    // middleware는 컨트롤러 전에 작동
 
 Route::resource('listing', ListingController::class);
-    // ->only(['index', 'show', 'create', 'store']);
-    // ->except(['destroy']);
+//     ->only(['create', 'store', 'edit', 'update', 'destroy'])
+//     ->middleware('auth');
+// Route::resource('listing', ListingController::class)
+//     ->except(['create', 'store', 'edit', 'update', 'destroy']);
 
 Route::get('login', [AuthController::class, 'create'])->name('login');
 Route::post('login', [AuthController::class, 'store'])->name('login.store');
