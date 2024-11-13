@@ -8,6 +8,7 @@
                 <div class="text-xl text-indigo-600 dark:text-indigo-300 font-bold text-center">
                     <Link :href="route('listing.index')">LaraZillow</Link>
                 </div>
+                <!-- 로그인 했을 때 -->
                 <div class="flex items-center gap-4" v-if="user">
                     <div class="tex-gray-500">{{ user.name }}</div>
                     <Link :href="route('listing.create')"
@@ -17,7 +18,9 @@
                         <Link :href="route('logout')" method="delete" as="button">Logout</Link>
                     </div>
                 </div>
-                <div v-else>
+                <!-- 로그인 하지 않았을 때 -->
+                <div v-else class="flex items-center gap-2">
+                    <Link :href="route('user-account.create')">Register</Link>
                     <Link :href="route('login')">Sign-in</Link>
                 </div>
             </nav>
