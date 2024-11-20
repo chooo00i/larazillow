@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class ListingController extends Controller
 {
@@ -62,6 +64,16 @@ class ListingController extends Controller
      */
     public function show(Listing $listing)
     {
+        // 방법 1
+        // if (Auth::user()->cannot('view', $listing)) {
+        //     abort(403);
+        // }
+
+        // 방법 2
+        if (Gate::inspect('view', $listing)) {
+            
+        }
+        
         return inertia(
             'Listing/Show',
             [
