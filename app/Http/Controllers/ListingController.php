@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ListingController extends Controller
 {
+    use AuthorizesRequests;
     public function __construct()
     {
         $this->middleware('auth')->except(['index', 'show']);
+        $this->authorizeResource(Listing::class, "listing");
     }
 
     /**
@@ -70,9 +73,9 @@ class ListingController extends Controller
         // }
 
         // 방법 2
-        if (Gate::inspect('view', $listing)) {
-            
-        }
+        // if (Gate::inspect('view', $listing)) {
+        //     abort(403);
+        // }
         
         return inertia(
             'Listing/Show',

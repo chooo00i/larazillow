@@ -13,7 +13,7 @@ class ListingPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class ListingPolicy
      */
     public function create(User $user)
     {
-        //
+        return false;
     }
 
     /**
