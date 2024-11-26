@@ -21,7 +21,7 @@ class ListingPolicy
      */
     public function view(User $user, Listing $listing)
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class ListingPolicy
      */
     public function create(User $user)
     {
-        return false;
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class ListingPolicy
      */
     public function update(User $user, Listing $listing)
     {
-        //
+        return $user->id === $listing->by_user_id; // 작성자만 업데이트 가능
     }
 
     /**
@@ -45,7 +45,7 @@ class ListingPolicy
      */
     public function delete(User $user, Listing $listing)
     {
-        //
+        return $user->id === $listing->by_user_id;
     }
 
     /**
@@ -53,7 +53,7 @@ class ListingPolicy
      */
     public function restore(User $user, Listing $listing)
     {
-        //
+        return $user->id === $listing->by_user_id;
     }
 
     /**
@@ -61,6 +61,6 @@ class ListingPolicy
      */
     public function forceDelete(User $user, Listing $listing)
     {
-        //
+        return $user->id === $listing->by_user_id;
     }
 }
