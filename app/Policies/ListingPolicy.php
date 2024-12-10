@@ -5,12 +5,12 @@ namespace App\Policies;
 use App\Models\Listing;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Illuminate\Auth\Access\Response;
 
 class ListingPolicy
 {
     use HandlesAuthorization;
     
+    // Gate 시스템은 Policy의 메서드(view, update, delete, 등)를 호출하기 전에 before 메서드가 정의되어 있는지 확인하고, 해당 메서드를 먼저 실행
     public function before(?User $user, $ability) {
         if ($user->is_admin 
             // && $ability == 'update'
