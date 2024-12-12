@@ -12,15 +12,15 @@
                 />
             </div>
             <div class="flex flex-nowrap items-center">
-                <select v-model="filterForm.beds" class="input-filter-l w-20">
+                <select v-model="filterForm.beds" class="input-filter-l w-30">
                     <option :value="null">Beds</option>
                     <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
-                    <option value="">6+</option>
+                    <option value="6">6+</option>
                 </select>
-                <select v-model="filterForm.baths" class="input-filter-r w-20">
+                <select v-model="filterForm.baths" class="input-filter-r w-30">
                     <option :value="null">Baths</option>
                     <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
-                    <option value="">6+</option>
+                    <option value="6">6+</option>
                 </select>
             </div>
             <div class="flex flex-nowrap items-center">

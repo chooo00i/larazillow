@@ -42,7 +42,7 @@
                 <div v-if="form.errors.price" class="input-error">{{ form.errors.price }}</div>
             </div>
             <div class="col-span-6">
-                <button type="submit" class="btn-primary">Create</button>
+                <button type="submit" class="btn-primary">Edit</button>
             </div>
         </div>
     </form>
