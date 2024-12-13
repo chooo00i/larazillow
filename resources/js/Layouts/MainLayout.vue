@@ -10,7 +10,7 @@
                 </div>
                 <!-- 로그인 했을 때 -->
                 <div v-if="user" class="flex items-center gap-4">
-                    <div class="tex-gray-500">{{ user.name }}</div>
+                    <Link :href="route('realotr.listing.index')" class="tex-gray-500">{{ user.name }}</Link>
                     <Link :href="route('listing.create')"
                         class="btn-primary">+ New Listing
                     </Link>
