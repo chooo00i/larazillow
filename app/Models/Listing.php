@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Listing extends Model
 {
-    use HasFactory; // factory 사용을 위해 넣어야 함
+    use HasFactory, SoftDeletes; // factory 사용을 위해 넣어야 함
 
     protected $guarded = []; // <-> $fillable
     
