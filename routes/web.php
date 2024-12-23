@@ -26,7 +26,7 @@ Route::resource('user-account', UserAccountController::class)
     ->only(['create', 'store']);
 
 Route::prefix('realtor')
-    ->name('realotr.') // 시작 이름 지정
+    ->name('realtor.') // 시작 이름 지정
     ->middleware('auth') // 권한이 있는 사용자만 접근
     ->group(function () {
         Route::resource('listing', RealtorListingController::class)
