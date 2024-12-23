@@ -48,6 +48,10 @@ class Listing extends Model
         )->when(
             $filters['area'] ?? false,
             fn ($query, $value) => $query->where('area', '<=', $value)
-        );
+        )->when(
+            $filters['deleted'] ?? false,
+            fn ($query, $vlaue) => $query->withTrashed(), // soft delete 결과도 포함
+        )
+        ;
     }
 }
