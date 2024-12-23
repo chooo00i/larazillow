@@ -13,24 +13,24 @@
 
 <script setup>
     import { reactive, watch } from 'vue'
-    import { router } from '@inertiajs/vue3';
+    import { router } from '@inertiajs/vue3'
+    import { debounce } from 'lodash'
 
     const filterForm = reactive({
         deleted: false,
     })
 
     // filterForm이 변경될 때마다 router.get 호출
+    // debounce: 마지막 호출만 실행되도록 함
     watch(
-        filterForm, () => {
-            router.get(
-                route('realtor.listing.index'),  // URL (서버 측 라우터와 연결)
-                filterForm,                       // 쿼리 파라미터
-                {
-                    preserveState: true,          // 페이지 상태를 보존
-                    preserveScroll: true,        // 스크롤 위치 보존
-                }
-            )
-        }
+        filterForm, debounce(() => router.get(
+            route('realtor.listing.index'),  // URL (서버 측 라우터와 연결)
+            filterForm,                       // 쿼리 파라미터
+            {
+                preserveState: true,          // 페이지 상태를 보존
+                preserveScroll: true,        // 스크롤 위치 보존
+            }
+        ), 1000)
     )
 
     // reative / ref / computed
