@@ -12,7 +12,12 @@ class Listing extends Model
 {
     use HasFactory, SoftDeletes; // factory 사용을 위해 넣어야 함
 
-    protected $guarded = []; // <-> $fillable
+    protected $fillable = [
+        'beds', 'baths', 'area', 'city', 'code', 'street', 'street_nr', 'price'
+    ];
+    protected $sortable = [
+        'price', 'created_at'
+    ];
     
     // User 모델과 관계 설정
     public function owner(): BelongsTo 
@@ -50,7 +55,13 @@ class Listing extends Model
             fn ($query, $value) => $query->where('area', '<=', $value)
         )->when(
             $filters['deleted'] ?? false,
-            fn ($query, $vlaue) => $query->withTrashed(), // soft delete 결과도 포함
+            fn ($query, $value) => $query->withTrashed(), // soft delete 결과도 포함
+        )->when(
+            $filters['by'] ?? false,
+            fn ($query, $value) => 
+            !in_array($value, $this->sortable) 
+            ? $query 
+            : $query->orderBy($value, $filters['order'] ?? 'desc'),
         )
         ;
     }
