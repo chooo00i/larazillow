@@ -32,16 +32,16 @@
 </template>
 
 <script setup>
-import Box from '@/Components/UI/Box.vue'
-import Price from '@/Components/Price.vue'
-import ListingSpace from '@/Components/ListingSpace.vue'
-import ListingAddress from '@/Components/ListingAddress.vue'
-import { Link } from '@inertiajs/vue3'
-import RealotrFilters from '@/Pages/Realtor/Index/Components/RealotrFilters.vue'
-import Pagination from '@/Components/UI/Pagination.vue'
+    import Box from '@/Components/UI/Box.vue'
+    import Price from '@/Components/Price.vue'
+    import ListingSpace from '@/Components/ListingSpace.vue'
+    import ListingAddress from '@/Components/ListingAddress.vue'
+    import { Link } from '@inertiajs/vue3'
+    import RealotrFilters from '@/Pages/Realtor/Index/Components/RealotrFilters.vue'
+    import Pagination from '@/Components/UI/Pagination.vue'
 
-defineProps({
-    listings: Object,
-    filters: Object,
-})
+    defineProps({
+        listings: Object,
+        filters: Object,
+    })
 </script>
