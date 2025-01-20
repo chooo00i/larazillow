@@ -12,11 +12,8 @@ Route::get('/hello', [IndexController::class, 'create'])
     ->middleware('auth');
     // middleware는 컨트롤러 전에 작동
 
-Route::resource('listing', ListingController::class);
-//     ->only(['create', 'store', 'edit', 'update', 'destroy'])
-//     ->middleware('auth');
-// Route::resource('listing', ListingController::class)
-//     ->except(['create', 'store', 'edit', 'update', 'destroy']);
+Route::resource('listing', ListingController::class)
+    ->only(['index', 'show']);
 
 Route::get('login', [AuthController::class, 'create'])->name('login');
 Route::post('login', [AuthController::class, 'store'])->name('login.store');
@@ -30,5 +27,5 @@ Route::prefix('realtor')
     ->middleware('auth') // 권한이 있는 사용자만 접근
     ->group(function () {
         Route::resource('listing', RealtorListingController::class)
-            ->only(['index', 'destroy']);
+            ->only(['index', 'destroy', 'edit', 'update', 'create', 'store']);
     });
