@@ -103,4 +103,12 @@ class RealtorListingController extends Controller
         return redirect()->route('realtor.listing.index')
             ->with('success', 'Listing was changed!'); // with() : 세션에 일시적인 데이터를 저장할 때 사용
     }
+
+    public function restore(Listing $listing)
+    {
+        $listing->restore();
+        
+        return redirect()->back()
+            ->with('success', 'Listing was restored!');
+    }
 }

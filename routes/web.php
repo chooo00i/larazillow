@@ -26,6 +26,12 @@ Route::prefix('realtor')
     ->name('realtor.') // 시작 이름 지정
     ->middleware('auth') // 권한이 있는 사용자만 접근
     ->group(function () {
+        Route::name('listing.restore')
+            ->put(
+                'listing/{listing}/restore',
+                [RealtorListingController::class, 'restore']
+            )->withTrashed();
         Route::resource('listing', RealtorListingController::class)
-            ->only(['index', 'destroy', 'edit', 'update', 'create', 'store']);
+            ->only(['index', 'destroy', 'edit', 'update', 'create', 'store'])
+            ->withTrashed(); // softdeleted 된 데이터도 포함
     });
